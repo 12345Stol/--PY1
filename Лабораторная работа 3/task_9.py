@@ -5,10 +5,9 @@ increase = 0.03  # рост цен
 
 money_capital = 0  # количество денег, чтобы прожить 10 месяцев
 
-delta = spend - salary  # Долг за первый месяц
-money_capital = delta
-for i in range(2, months + 1):  # Перебираем каждый месяц
+while months > 0:
+    delta = spend - salary  # Определяем долг
     spend *= 1 + increase  # Траты с учетом роста цен
-    delta = spend - salary  # Долги за последующие месяцы
     money_capital += delta
+    months -= 1  # Перебираем месяцы
 print(round(money_capital))
