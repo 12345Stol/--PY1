@@ -1,10 +1,10 @@
 def get_count_char(str_):
-    str_ = str_.lower()
+    str_ = str_.lower()  # Переведем строку в нижний регистр
     symbols_dict = {}  # Создадим словарь для букв
     DEFAULT_SYMBOL = 0
     for symbol in str_:
-        if symbol.isalpha():
-            symbols_dict[symbol] = symbols_dict.get(symbol, DEFAULT_SYMBOL) + 1
+        if symbol.isalpha(): # Если символ является буквой
+            symbols_dict[symbol] = symbols_dict.get(symbol, DEFAULT_SYMBOL) + 1  # То заносим символ в словарь
     return symbols_dict
 
 main_str = """
