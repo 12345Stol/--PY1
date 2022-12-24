@@ -4,8 +4,7 @@ OUTPUT_FILE = "output.csv"
 def to_csv_file(filename, headers, rows, delimiter=",", new_line="\n"):
     with open(filename, 'w') as file:
         file.write(delimiter.join(headers) + new_line)  # Записываем в файл заголовки
-        for row in rows:
-            file.write(delimiter.join(row) + new_line)  # Записываем файл остальные значения
+        file.writelines(delimiter.join(row) + new_line for row in rows)
     return filename
 
 
