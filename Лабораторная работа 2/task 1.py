@@ -14,8 +14,26 @@ BOOKS_DATABASE = [
 
 class Book:
     def __init__(self, id_: int, name: str, pages: int):
+        """
+        Создание и подготовка к работе объекта "Книга"
+        :param id_: идентификатор книги
+        :param name: название книги
+        :param pages: количество страниц в книге
+        """
+        if not isinstance(id_, int):
+            raise TypeError("Значение id должно быть целым числом")
+        if id_ <= 0:
+            raise ValueError("Недопустимое значение id")
         self.id_ = id_
+
+        if not isinstance(name, str):
+            raise TypeError("Значение name должно быть строкой")
         self.name = name
+
+        if not isinstance(pages, int):
+            raise TypeError("Значение pages должно быть целым числом")
+        if pages <= 0:
+            raise ValueError("Недопустимое значение pages")
         self.pages = pages
 
     def __str__(self):
