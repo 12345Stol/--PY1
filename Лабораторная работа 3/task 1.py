@@ -1,7 +1,7 @@
 class Book:
     """ Базовый класс книги.
     :param name: Название книги
-    :param author: Название книги
+    :param author: Название автора
     """
     def __init__(self, name: str, author: str):
         self._name = name  # Отработает setter свойства
@@ -21,12 +21,12 @@ class Book:
 
     @property
     def author(self) -> str:
-        """ Возращает имя автора"""
+        """ Возращает название автора"""
         return self._author
 
     @author.setter
     def author(self, new_author: str) -> None:
-        """ Устанавливает имя автора"""
+        """ Устанавливает название автора"""
         if not isinstance(new_author, str):
             raise TypeError("Недопустимое значение названия автора")
         self._author = new_author
