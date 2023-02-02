@@ -88,7 +88,7 @@ class AudioBook(Book):
 
     @duration.setter
     def duration(self, new_duration: float) -> None:
-        """ Устанавливает количество страниц книги"""
+        """ Устанавливает продолжительность книги"""
         if not isinstance(new_duration, float):
             raise TypeError("Недопустимое значение продолжительности")
         if new_duration <= 0:
