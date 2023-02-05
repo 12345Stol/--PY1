@@ -1,7 +1,7 @@
 class Book:
     """ Базовый класс книги.
     :param name: Название книги
-    :param author: Название автора
+    :param author: Название книги
     """
     def __init__(self, name: str, author: str):
         self._name = name  # Отработает setter свойства
@@ -21,12 +21,12 @@ class Book:
 
     @property
     def author(self) -> str:
-        """ Возращает название автора"""
+        """ Возращает имя автора"""
         return self._author
 
     @author.setter
     def author(self, new_author: str) -> None:
-        """ Устанавливает название автора"""
+        """ Устанавливает имя автора"""
         if not isinstance(new_author, str):
             raise TypeError("Недопустимое значение названия автора")
         self._author = new_author
@@ -63,9 +63,6 @@ class PaperBook(Book):
             raise ValueError("Количество страниц должно быть положительным чисом")
         self._pages = new_pages
 
-    def __str__(self):
-        return f"Книга {self.name}. Автор {self.author}. Количество страниц {self.pages}"  # Добавим информацию о кол-ве страниц в метод __str__
-
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, pages={self.pages!r})" # Добавим информацию о кол-ве страниц в метод __repr__
 
@@ -88,15 +85,12 @@ class AudioBook(Book):
 
     @duration.setter
     def duration(self, new_duration: float) -> None:
-        """ Устанавливает продолжительность книги"""
+        """ Устанавливает количество страниц книги"""
         if not isinstance(new_duration, float):
             raise TypeError("Недопустимое значение продолжительности")
         if new_duration <= 0:
             raise ValueError("Продолжительность должна быть положительным чисом")
         self._duration = new_duration
-
-    def __str__(self):
-        return f"Книга {self.name}. Автор {self.author}. Продолжительность {self.duration}"  # Добавим информацию о продолжительности книги в метод __str__
 
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, duration={self.duration!r})"  # Добавим информацию о продолжительности книги в метод __repr__
